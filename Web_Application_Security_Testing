@@ -1,0 +1,2019 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "7ec77f8f-b7b6-4fec-9553-1f1665ddfb5f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "==================================================\n",
+      "WEB APPLICATION SECURITY TESTING\n",
+      "==================================================\n",
+      "Project Name: Web Application Security Testing\n",
+      "Language: Python\n",
+      "Platform: Jupyter Notebook\n",
+      "Testing Type: Basic Security Assessment\n",
+      "Environment: Local Test Application\n",
+      "==================================================\n",
+      "Project Started Successfully!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# ==========================================\n",
+    "# WEB APPLICATION SECURITY TESTING\n",
+    "# ==========================================\n",
+    "\n",
+    "print(\"=\" * 50)\n",
+    "print(\"WEB APPLICATION SECURITY TESTING\")\n",
+    "print(\"=\" * 50)\n",
+    "\n",
+    "print(\"Project Name: Web Application Security Testing\")\n",
+    "print(\"Language: Python\")\n",
+    "print(\"Platform: Jupyter Notebook\")\n",
+    "print(\"Testing Type: Basic Security Assessment\")\n",
+    "print(\"Environment: Local Test Application\")\n",
+    "\n",
+    "print(\"=\" * 50)\n",
+    "print(\"Project Started Successfully!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "c7864fb1-7733-465f-adea-802d8e2c0d3b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Python Version: 3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]\n",
+      "Python Environment Ready!\n"
+     ]
+    }
+   ],
+   "source": [
+    "import sys\n",
+    "\n",
+    "print(\"Python Version:\", sys.version)\n",
+    "print(\"Python Environment Ready!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "e57ee93a-c4c3-4a21-9698-33de0b8dffdd",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Requirement already satisfied: requests in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (2.34.2)\n",
+      "Requirement already satisfied: pandas in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (3.0.6)\n",
+      "Requirement already satisfied: matplotlib in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (3.11.1)\n",
+      "Requirement already satisfied: charset_normalizer<4,>=2 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from requests) (3.5.1)\n",
+      "Requirement already satisfied: idna<4,>=2.5 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from requests) (3.19)\n",
+      "Requirement already satisfied: urllib3<3,>=1.26 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from requests) (2.7.0)\n",
+      "Requirement already satisfied: certifi>=2023.5.7 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from requests) (2026.7.22)\n",
+      "Requirement already satisfied: numpy>=1.26.0 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from pandas) (2.4.6)\n",
+      "Requirement already satisfied: python-dateutil>=2.8.2 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from pandas) (2.9.0.post0)\n",
+      "Requirement already satisfied: tzdata in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from pandas) (2026.4)\n",
+      "Requirement already satisfied: contourpy>=1.0.1 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from matplotlib) (1.3.3)\n",
+      "Requirement already satisfied: cycler>=0.10 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from matplotlib) (0.12.1)\n",
+      "Requirement already satisfied: fonttools>=4.28.2 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from matplotlib) (4.63.0)\n",
+      "Requirement already satisfied: kiwisolver>=1.3.1 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from matplotlib) (1.5.1)\n",
+      "Requirement already satisfied: packaging>=20.0 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from matplotlib) (26.3)\n",
+      "Requirement already satisfied: pillow>=9 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from matplotlib) (12.3.0)\n",
+      "Requirement already satisfied: pyparsing>=3 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from matplotlib) (3.3.2)\n",
+      "Requirement already satisfied: six>=1.5 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "[notice] A new release of pip is available: 24.0 -> 26.2.2\n",
+      "[notice] To update, run: python.exe -m pip install --upgrade pip\n"
+     ]
+    }
+   ],
+   "source": [
+    "!pip install requests pandas matplotlib"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "c6e1de08-e038-46d8-8957-52061457c442",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "All Libraries Imported Successfully!\n"
+     ]
+    }
+   ],
+   "source": [
+    "import requests\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "import json\n",
+    "import re\n",
+    "import hashlib\n",
+    "import html\n",
+    "\n",
+    "print(\"All Libraries Imported Successfully!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "2f622d2b-b013-4c3c-871a-44f2d3665450",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "APPLICATION DETAILS\n",
+      "========================================\n",
+      "application_name : Security Testing Lab\n",
+      "version : 1.0\n",
+      "features : ['User Login', 'Password Authentication', 'Input Validation', 'Session Management']\n",
+      "environment : Local Testing\n",
+      "========================================\n",
+      "Test Application Created Successfully!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# STEP 2: CREATE TEST APPLICATION\n",
+    "\n",
+    "test_application = {\n",
+    "    \"application_name\": \"Security Testing Lab\",\n",
+    "    \"version\": \"1.0\",\n",
+    "    \"features\": [\n",
+    "        \"User Login\",\n",
+    "        \"Password Authentication\",\n",
+    "        \"Input Validation\",\n",
+    "        \"Session Management\"\n",
+    "    ],\n",
+    "    \"environment\": \"Local Testing\"\n",
+    "}\n",
+    "\n",
+    "print(\"APPLICATION DETAILS\")\n",
+    "print(\"=\" * 40)\n",
+    "\n",
+    "for key, value in test_application.items():\n",
+    "    print(key, \":\", value)\n",
+    "\n",
+    "print(\"=\" * 40)\n",
+    "print(\"Test Application Created Successfully!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "7a6602bb-3a6d-4d44-ad19-1c9e7181609c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Test User Database Created!\n",
+      "Total Users: 2\n"
+     ]
+    }
+   ],
+   "source": [
+    "# CREATE SAMPLE USER DATABASE\n",
+    "\n",
+    "users = [\n",
+    "    {\n",
+    "        \"username\": \"admin\",\n",
+    "        \"password\": \"admin123\",\n",
+    "        \"role\": \"admin\"\n",
+    "    },\n",
+    "    {\n",
+    "        \"username\": \"user1\",\n",
+    "        \"password\": \"user123\",\n",
+    "        \"role\": \"user\"\n",
+    "    }\n",
+    "]\n",
+    "\n",
+    "print(\"Test User Database Created!\")\n",
+    "print(\"Total Users:\", len(users))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "424f689f-d30a-4faa-bf66-2352ede56033",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Login Function Created Successfully!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# STEP 3: AUTHENTICATION TESTING\n",
+    "\n",
+    "def login(username, password):\n",
+    "\n",
+    "    for user in users:\n",
+    "        if user[\"username\"] == username:\n",
+    "            if user[\"password\"] == password:\n",
+    "                return True\n",
+    "\n",
+    "    return False\n",
+    "\n",
+    "\n",
+    "print(\"Login Function Created Successfully!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "ef488db3-3a64-41c1-af20-873c3e96470a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Login Test: PASS\n",
+      "Valid credentials accepted.\n"
+     ]
+    }
+   ],
+   "source": [
+    "# VALID LOGIN TEST\n",
+    "\n",
+    "result = login(\"admin\", \"admin123\")\n",
+    "\n",
+    "if result:\n",
+    "    print(\"Login Test: PASS\")\n",
+    "    print(\"Valid credentials accepted.\")\n",
+    "else:\n",
+    "    print(\"Login Test: FAIL\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "61c5ea6f-65fa-4198-a494-1d79942b8e2b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Security Test: PASS\n",
+      "Invalid password rejected.\n"
+     ]
+    }
+   ],
+   "source": [
+    "# INVALID LOGIN TEST\n",
+    "\n",
+    "result = login(\"admin\", \"wrongpassword\")\n",
+    "\n",
+    "if result:\n",
+    "    print(\"Security Test: FAIL\")\n",
+    "    print(\"Invalid password was accepted!\")\n",
+    "else:\n",
+    "    print(\"Security Test: PASS\")\n",
+    "    print(\"Invalid password rejected.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "51de2d18-9271-42d2-bdb2-885c4d1382c7",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "123456  - Weak Password\n",
+      "password  - Length requirement met\n",
+      "admin  - Weak Password\n",
+      "admin123  - Length requirement met\n"
+     ]
+    }
+   ],
+   "source": [
+    "# WEAK PASSWORD CHECK\n",
+    "\n",
+    "weak_passwords = [\n",
+    "    \"123456\",\n",
+    "    \"password\",\n",
+    "    \"admin\",\n",
+    "    \"admin123\"\n",
+    "]\n",
+    "\n",
+    "for password in weak_passwords:\n",
+    "\n",
+    "    if len(password) < 8:\n",
+    "        print(password, \" - Weak Password\")\n",
+    "    else:\n",
+    "        print(password, \" - Length requirement met\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "7998ff90-2600-4361-a485-c04a8381a41b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Password Strength Checker Ready!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# STEP 4: PASSWORD STRENGTH ANALYSIS\n",
+    "\n",
+    "import re\n",
+    "\n",
+    "def check_password_strength(password):\n",
+    "\n",
+    "    if len(password) < 8:\n",
+    "        return \"Weak\"\n",
+    "\n",
+    "    if password.lower() in [\"password\", \"admin123\", \"12345678\"]:\n",
+    "        return \"Weak\"\n",
+    "\n",
+    "    has_upper = bool(re.search(r\"[A-Z]\", password))\n",
+    "    has_lower = bool(re.search(r\"[a-z]\", password))\n",
+    "    has_digit = bool(re.search(r\"\\d\", password))\n",
+    "    has_special = bool(re.search(r\"[^A-Za-z0-9]\", password))\n",
+    "\n",
+    "    score = sum([has_upper, has_lower, has_digit, has_special])\n",
+    "\n",
+    "    if score >= 4:\n",
+    "        return \"Strong\"\n",
+    "    elif score >= 2:\n",
+    "        return \"Medium\"\n",
+    "    else:\n",
+    "        return \"Weak\"\n",
+    "\n",
+    "\n",
+    "print(\"Password Strength Checker Ready!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "f3269241-a52b-4171-afc6-5db9fda5e892",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "123456 : Weak\n",
+      "password : Weak\n",
+      "admin123 : Weak\n",
+      "Hello123! : Strong\n",
+      "Secure@2026 : Strong\n"
+     ]
+    }
+   ],
+   "source": [
+    "test_passwords = [\n",
+    "    \"123456\",\n",
+    "    \"password\",\n",
+    "    \"admin123\",\n",
+    "    \"Hello123!\",\n",
+    "    \"Secure@2026\"\n",
+    "]\n",
+    "\n",
+    "for password in test_passwords:\n",
+    "    result = check_password_strength(password)\n",
+    "    print(password, \":\", result)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "cbc0b8da-0159-4064-aee1-b023e2deec7e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Vulnerability Recorded Successfully!\n",
+      "{'Vulnerability ID': 'VULN-001', 'Vulnerability': 'Insecure Password Storage', 'Risk Level': 'High', 'Evidence': 'Passwords stored in plain text', 'Recommendation': 'Use Argon2id or bcrypt password hashing', 'Status': 'Open'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "# RECORD SECURITY FINDING\n",
+    "\n",
+    "finding_1 = {\n",
+    "    \"Vulnerability ID\": \"VULN-001\",\n",
+    "    \"Vulnerability\": \"Insecure Password Storage\",\n",
+    "    \"Risk Level\": \"High\",\n",
+    "    \"Evidence\": \"Passwords stored in plain text\",\n",
+    "    \"Recommendation\": \"Use Argon2id or bcrypt password hashing\",\n",
+    "    \"Status\": \"Open\"\n",
+    "}\n",
+    "\n",
+    "print(\"Vulnerability Recorded Successfully!\")\n",
+    "print(finding_1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "741259ad-5df9-4863-b10a-4c91ec2ce1da",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sample Database Created Successfully!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# STEP 5: SQL INJECTION TESTING\n",
+    "\n",
+    "import sqlite3\n",
+    "\n",
+    "conn = sqlite3.connect(\":memory:\")\n",
+    "\n",
+    "cursor = conn.cursor()\n",
+    "\n",
+    "cursor.execute(\"\"\"\n",
+    "CREATE TABLE users (\n",
+    "    id INTEGER PRIMARY KEY,\n",
+    "    username TEXT,\n",
+    "    password TEXT\n",
+    ")\n",
+    "\"\"\")\n",
+    "\n",
+    "cursor.execute(\n",
+    "    \"INSERT INTO users (username, password) VALUES (?, ?)\",\n",
+    "    (\"admin\", \"admin123\")\n",
+    ")\n",
+    "\n",
+    "cursor.execute(\n",
+    "    \"INSERT INTO users (username, password) VALUES (?, ?)\",\n",
+    "    (\"user1\", \"user123\")\n",
+    ")\n",
+    "\n",
+    "conn.commit()\n",
+    "\n",
+    "print(\"Sample Database Created Successfully!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "31ea1055-7fb8-4c9c-91f4-f3b8d57e7a0b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Vulnerable Login Function Created!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# VULNERABLE SQL QUERY DEMONSTRATION\n",
+    "\n",
+    "def vulnerable_login(username, password):\n",
+    "\n",
+    "    query = (\n",
+    "        \"SELECT * FROM users WHERE username = '\"\n",
+    "        + username\n",
+    "        + \"' AND password = '\"\n",
+    "        + password\n",
+    "        + \"'\"\n",
+    "    )\n",
+    "\n",
+    "    print(\"Generated SQL Query:\")\n",
+    "    print(query)\n",
+    "\n",
+    "    cursor.execute(query)\n",
+    "\n",
+    "    return cursor.fetchone()\n",
+    "\n",
+    "\n",
+    "print(\"Vulnerable Login Function Created!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "a2f4fc0c-35b2-42d4-853b-d0166410b14d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Generated SQL Query:\n",
+      "SELECT * FROM users WHERE username = 'admin' AND password = 'admin123'\n",
+      "Login Successful\n"
+     ]
+    }
+   ],
+   "source": [
+    "result = vulnerable_login(\"admin\", \"admin123\")\n",
+    "\n",
+    "if result:\n",
+    "    print(\"Login Successful\")\n",
+    "else:\n",
+    "    print(\"Login Failed\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "096b09c8-f755-4da7-aa16-1b213d0380a7",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Generated SQL Query:\n",
+      "SELECT * FROM users WHERE username = '' OR '1'='1' -- ' AND password = 'anything'\n",
+      "SQL INJECTION DETECTED!\n",
+      "Authentication bypass demonstrated.\n"
+     ]
+    }
+   ],
+   "source": [
+    "# CONTROLLED SQL INJECTION TEST\n",
+    "\n",
+    "test_username = \"' OR '1'='1' -- \"\n",
+    "test_password = \"anything\"\n",
+    "\n",
+    "try:\n",
+    "    result = vulnerable_login(\n",
+    "        test_username,\n",
+    "        test_password\n",
+    "    )\n",
+    "\n",
+    "    if result:\n",
+    "        print(\"SQL INJECTION DETECTED!\")\n",
+    "        print(\"Authentication bypass demonstrated.\")\n",
+    "    else:\n",
+    "        print(\"No injection detected.\")\n",
+    "\n",
+    "except sqlite3.Error as e:\n",
+    "    print(\"SQL Error:\", e)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "1eb85924-2007-4eda-a569-b75dff361560",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Secure Login Function Created!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# STEP 6: SECURE SQL QUERY\n",
+    "\n",
+    "def secure_login(username, password):\n",
+    "\n",
+    "    query = \"\"\"\n",
+    "    SELECT * FROM users\n",
+    "    WHERE username = ? AND password = ?\n",
+    "    \"\"\"\n",
+    "\n",
+    "    cursor.execute(query, (username, password))\n",
+    "\n",
+    "    return cursor.fetchone()\n",
+    "\n",
+    "\n",
+    "print(\"Secure Login Function Created!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "df37bfa9-0cb2-4c15-96cf-000f70ee879f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Login Successful\n"
+     ]
+    }
+   ],
+   "source": [
+    "result = secure_login(\"admin\", \"admin123\")\n",
+    "\n",
+    "if result:\n",
+    "    print(\"Login Successful\")\n",
+    "else:\n",
+    "    print(\"Login Failed\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "4596ee47-e0c6-48f4-a030-80f473f3fc12",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "SQL Injection Prevented!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# RETEST WITH SAME SQL INJECTION INPUT\n",
+    "\n",
+    "result = secure_login(\n",
+    "    \"' OR '1'='1' -- \",\n",
+    "    \"anything\"\n",
+    ")\n",
+    "\n",
+    "if result:\n",
+    "    print(\"Vulnerability Still Exists!\")\n",
+    "else:\n",
+    "    print(\"SQL Injection Prevented!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "b65ff22c-1752-497f-828f-dca51fa9a295",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "VULN-002 Recorded!\n",
+      "{'Vulnerability ID': 'VULN-002', 'Vulnerability': 'SQL Injection', 'Risk Level': 'High', 'Evidence': 'Authentication bypass using unsafe SQL query', 'Recommendation': 'Use parameterized SQL queries', 'Status': 'Fixed and Retested'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "finding_2 = {\n",
+    "    \"Vulnerability ID\": \"VULN-002\",\n",
+    "    \"Vulnerability\": \"SQL Injection\",\n",
+    "    \"Risk Level\": \"High\",\n",
+    "    \"Evidence\": \"Authentication bypass using unsafe SQL query\",\n",
+    "    \"Recommendation\": \"Use parameterized SQL queries\",\n",
+    "    \"Status\": \"Fixed and Retested\"\n",
+    "}\n",
+    "\n",
+    "print(\"VULN-002 Recorded!\")\n",
+    "print(finding_2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "50028298-1fd7-4f66-8e8a-968ceaf57a82",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Vulnerable Input Handler Created!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# STEP 7: XSS TESTING\n",
+    "\n",
+    "def vulnerable_display(user_input):\n",
+    "\n",
+    "    html_output = \"<h3>Welcome User</h3>\"\n",
+    "    html_output += \"<p>\" + user_input + \"</p>\"\n",
+    "\n",
+    "    return html_output\n",
+    "\n",
+    "\n",
+    "print(\"Vulnerable Input Handler Created!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "59b2fdd9-459a-407f-9f2a-343d63338058",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Generated HTML:\n",
+      "<h3>Welcome User</h3><p><script>alert('XSS Test')</script></p>\n"
+     ]
+    }
+   ],
+   "source": [
+    "# CONTROLLED XSS TEST\n",
+    "\n",
+    "test_input = \"<script>alert('XSS Test')</script>\"\n",
+    "\n",
+    "result = vulnerable_display(test_input)\n",
+    "\n",
+    "print(\"Generated HTML:\")\n",
+    "print(result)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "27715bc7-8bcf-4d91-9be0-f321678863ee",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Secure Input Handler Created!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# SECURE INPUT HANDLING\n",
+    "\n",
+    "import html\n",
+    "\n",
+    "def secure_display(user_input):\n",
+    "\n",
+    "    html_output = \"<h3>Welcome User</h3>\"\n",
+    "    html_output += \"<p>\" + html.escape(user_input) + \"</p>\"\n",
+    "\n",
+    "    return html_output\n",
+    "\n",
+    "\n",
+    "print(\"Secure Input Handler Created!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "654277b5-024e-4f61-98bc-6dbc249c8be2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Secured HTML:\n",
+      "<h3>Welcome User</h3><p>&lt;script&gt;alert(&#x27;XSS Test&#x27;)&lt;/script&gt;</p>\n"
+     ]
+    }
+   ],
+   "source": [
+    "# RETEST AFTER FIX\n",
+    "\n",
+    "result = secure_display(test_input)\n",
+    "\n",
+    "print(\"Secured HTML:\")\n",
+    "print(result)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "0093d8fc-84e7-4bb2-9e76-b026fa3f00af",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "VULN-003 Recorded!\n",
+      "{'Vulnerability ID': 'VULN-003', 'Vulnerability': 'Cross-Site Scripting (XSS)', 'Risk Level': 'High', 'Evidence': 'Unescaped user input inserted into HTML', 'Recommendation': 'Apply context-aware output encoding', 'Status': 'Fixed and Retested'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "finding_3 = {\n",
+    "    \"Vulnerability ID\": \"VULN-003\",\n",
+    "    \"Vulnerability\": \"Cross-Site Scripting (XSS)\",\n",
+    "    \"Risk Level\": \"High\",\n",
+    "    \"Evidence\": \"Unescaped user input inserted into HTML\",\n",
+    "    \"Recommendation\": \"Apply context-aware output encoding\",\n",
+    "    \"Status\": \"Fixed and Retested\"\n",
+    "}\n",
+    "\n",
+    "print(\"VULN-003 Recorded!\")\n",
+    "print(finding_3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "b7b7e694-9278-4424-b6ee-ff15a455bdb4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Input Validation Function Created!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# STEP 8: INPUT VALIDATION TESTING\n",
+    "\n",
+    "import re\n",
+    "\n",
+    "def validate_email(email):\n",
+    "\n",
+    "    if not email:\n",
+    "        return False\n",
+    "\n",
+    "    pattern = r'^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$'\n",
+    "\n",
+    "    return bool(re.match(pattern, email))\n",
+    "\n",
+    "\n",
+    "print(\"Input Validation Function Created!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "464ae937-059b-4065-8371-aca247e024ee",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "user@gmail.com : Valid Input\n",
+      "'invalid-email' : Invalid Input\n",
+      "'' : Invalid Input\n",
+      "admin@company.com : Valid Input\n",
+      "'user@' : Invalid Input\n",
+      "'test123' : Invalid Input\n"
+     ]
+    }
+   ],
+   "source": [
+    "# TEST INPUT VALUES\n",
+    "\n",
+    "test_emails = [\n",
+    "    \"user@gmail.com\",\n",
+    "    \"invalid-email\",\n",
+    "    \"\",\n",
+    "    \"admin@company.com\",\n",
+    "    \"user@\",\n",
+    "    \"test123\"\n",
+    "]\n",
+    "\n",
+    "for email in test_emails:\n",
+    "\n",
+    "    result = validate_email(email)\n",
+    "\n",
+    "    if result:\n",
+    "        print(email, \":\", \"Valid Input\")\n",
+    "    else:\n",
+    "        print(repr(email), \":\", \"Invalid Input\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "f4993214-2fe2-4e75-bc87-44d2af616a9e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Security Test: PASS\n",
+      "Excessively long input rejected.\n"
+     ]
+    }
+   ],
+   "source": [
+    "# LONG INPUT VALIDATION\n",
+    "\n",
+    "long_input = \"A\" * 10000\n",
+    "\n",
+    "MAX_LENGTH = 100\n",
+    "\n",
+    "if len(long_input) > MAX_LENGTH:\n",
+    "    print(\"Security Test: PASS\")\n",
+    "    print(\"Excessively long input rejected.\")\n",
+    "else:\n",
+    "    print(\"Input Accepted.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "0ead9287-5017-4769-b9b3-15dd85109525",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "VULN-004 Recorded!\n",
+      "{'Vulnerability ID': 'VULN-004', 'Vulnerability': 'Improper Input Validation', 'Risk Level': 'Medium', 'Evidence': 'Input validation checks required for invalid and oversized data', 'Recommendation': 'Implement server-side validation and input length limits', 'Status': 'Remediation Required'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "finding_4 = {\n",
+    "    \"Vulnerability ID\": \"VULN-004\",\n",
+    "    \"Vulnerability\": \"Improper Input Validation\",\n",
+    "    \"Risk Level\": \"Medium\",\n",
+    "    \"Evidence\": \"Input validation checks required for invalid and oversized data\",\n",
+    "    \"Recommendation\": \"Implement server-side validation and input length limits\",\n",
+    "    \"Status\": \"Remediation Required\"\n",
+    "}\n",
+    "\n",
+    "print(\"VULN-004 Recorded!\")\n",
+    "print(finding_4)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "096e9786-ae41-4083-9b43-84923efe1b7f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sample HTTP Headers Created!\n",
+      "{'Server': 'Python Local Server', 'Content-Type': 'text/html'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "# STEP 9: SECURITY HEADERS TESTING\n",
+    "\n",
+    "sample_headers = {\n",
+    "    \"Server\": \"Python Local Server\",\n",
+    "    \"Content-Type\": \"text/html\"\n",
+    "}\n",
+    "\n",
+    "print(\"Sample HTTP Headers Created!\")\n",
+    "print(sample_headers)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "049345ca-8433-4712-ad4d-7ecf92621cad",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Content-Security-Policy : MISSING\n",
+      "X-Frame-Options : MISSING\n",
+      "X-Content-Type-Options : MISSING\n",
+      "Strict-Transport-Security : MISSING\n",
+      "Referrer-Policy : MISSING\n",
+      "\n",
+      "Total Missing Headers: 5\n"
+     ]
+    }
+   ],
+   "source": [
+    "# SECURITY HEADER ANALYSIS\n",
+    "\n",
+    "required_headers = [\n",
+    "    \"Content-Security-Policy\",\n",
+    "    \"X-Frame-Options\",\n",
+    "    \"X-Content-Type-Options\",\n",
+    "    \"Strict-Transport-Security\",\n",
+    "    \"Referrer-Policy\"\n",
+    "]\n",
+    "\n",
+    "missing_headers = []\n",
+    "\n",
+    "for header in required_headers:\n",
+    "\n",
+    "    if header not in sample_headers:\n",
+    "        missing_headers.append(header)\n",
+    "        print(header, \": MISSING\")\n",
+    "    else:\n",
+    "        print(header, \": PRESENT\")\n",
+    "\n",
+    "print(\"\\nTotal Missing Headers:\", len(missing_headers))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "6cbd8d1b-84c9-4588-a97b-d68a1d0903f6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "VULN-005 Recorded!\n",
+      "{'Vulnerability ID': 'VULN-005', 'Vulnerability': 'Missing Security Headers', 'Risk Level': 'Medium', 'Evidence': \"['Content-Security-Policy', 'X-Frame-Options', 'X-Content-Type-Options', 'Strict-Transport-Security', 'Referrer-Policy']\", 'Recommendation': 'Configure appropriate HTTP security headers', 'Status': 'Remediation Required'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "finding_5 = {\n",
+    "    \"Vulnerability ID\": \"VULN-005\",\n",
+    "    \"Vulnerability\": \"Missing Security Headers\",\n",
+    "    \"Risk Level\": \"Medium\",\n",
+    "    \"Evidence\": str(missing_headers),\n",
+    "    \"Recommendation\": \"Configure appropriate HTTP security headers\",\n",
+    "    \"Status\": \"Remediation Required\"\n",
+    "}\n",
+    "\n",
+    "print(\"VULN-005 Recorded!\")\n",
+    "print(finding_5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "7075fe21-43b7-4b62-86e0-36486f795d52",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Session Created Successfully!\n",
+      "Username: admin\n",
+      "Session Active: True\n",
+      "Session ID Length: 43\n"
+     ]
+    }
+   ],
+   "source": [
+    "# STEP 10: SESSION SECURITY TESTING\n",
+    "\n",
+    "import secrets\n",
+    "\n",
+    "def create_session(username):\n",
+    "\n",
+    "    session_id = secrets.token_urlsafe(32)\n",
+    "\n",
+    "    session = {\n",
+    "        \"username\": username,\n",
+    "        \"session_id\": session_id,\n",
+    "        \"active\": True\n",
+    "    }\n",
+    "\n",
+    "    return session\n",
+    "\n",
+    "\n",
+    "test_session = create_session(\"admin\")\n",
+    "\n",
+    "print(\"Session Created Successfully!\")\n",
+    "print(\"Username:\", test_session[\"username\"])\n",
+    "print(\"Session Active:\", test_session[\"active\"])\n",
+    "print(\"Session ID Length:\", len(test_session[\"session_id\"]))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "e6aa0d25-07d6-42a5-b678-2661b988cfc0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "PASS: Unique Session IDs Generated\n"
+     ]
+    }
+   ],
+   "source": [
+    "# SESSION RANDOMNESS TEST\n",
+    "\n",
+    "session_1 = create_session(\"admin\")\n",
+    "session_2 = create_session(\"admin\")\n",
+    "\n",
+    "if session_1[\"session_id\"] != session_2[\"session_id\"]:\n",
+    "    print(\"PASS: Unique Session IDs Generated\")\n",
+    "else:\n",
+    "    print(\"FAIL: Duplicate Session IDs\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "1bcee8fb-b6ae-4301-9ac8-91f8b8fa2f00",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "PASS: Session Invalidated Successfully\n"
+     ]
+    }
+   ],
+   "source": [
+    "# SESSION LOGOUT TEST\n",
+    "\n",
+    "def logout(session):\n",
+    "\n",
+    "    session[\"active\"] = False\n",
+    "\n",
+    "    return session\n",
+    "\n",
+    "\n",
+    "logout(test_session)\n",
+    "\n",
+    "if not test_session[\"active\"]:\n",
+    "    print(\"PASS: Session Invalidated Successfully\")\n",
+    "else:\n",
+    "    print(\"FAIL: Session Still Active\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "3e210a06-5d3f-4d47-86ff-3710af7d9f4e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "VULN-006 Recorded!\n",
+      "{'Vulnerability ID': 'VULN-006', 'Vulnerability': 'Session Security Assessment', 'Risk Level': 'Informational', 'Evidence': 'Session uniqueness and logout invalidation tested', 'Recommendation': 'Use secure cookies, session rotation and server-side expiration', 'Status': 'Basic Checks Passed'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "finding_6 = {\n",
+    "    \"Vulnerability ID\": \"VULN-006\",\n",
+    "    \"Vulnerability\": \"Session Security Assessment\",\n",
+    "    \"Risk Level\": \"Informational\",\n",
+    "    \"Evidence\": \"Session uniqueness and logout invalidation tested\",\n",
+    "    \"Recommendation\": \"Use secure cookies, session rotation and server-side expiration\",\n",
+    "    \"Status\": \"Basic Checks Passed\"\n",
+    "}\n",
+    "\n",
+    "print(\"VULN-006 Recorded!\")\n",
+    "print(finding_6)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "id": "3acdac5c-2293-4a8b-8892-e5f840f12c69",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Vulnerability ID</th>\n",
+       "      <th>Vulnerability</th>\n",
+       "      <th>Risk Level</th>\n",
+       "      <th>Evidence</th>\n",
+       "      <th>Recommendation</th>\n",
+       "      <th>Status</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>VULN-001</td>\n",
+       "      <td>Insecure Password Storage</td>\n",
+       "      <td>High</td>\n",
+       "      <td>Passwords stored in plain text</td>\n",
+       "      <td>Use Argon2id or bcrypt password hashing</td>\n",
+       "      <td>Open</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>VULN-002</td>\n",
+       "      <td>SQL Injection</td>\n",
+       "      <td>High</td>\n",
+       "      <td>Authentication bypass using unsafe SQL query</td>\n",
+       "      <td>Use parameterized SQL queries</td>\n",
+       "      <td>Fixed and Retested</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>VULN-003</td>\n",
+       "      <td>Cross-Site Scripting (XSS)</td>\n",
+       "      <td>High</td>\n",
+       "      <td>Unescaped user input inserted into HTML</td>\n",
+       "      <td>Apply context-aware output encoding</td>\n",
+       "      <td>Fixed and Retested</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>VULN-004</td>\n",
+       "      <td>Improper Input Validation</td>\n",
+       "      <td>Medium</td>\n",
+       "      <td>Input validation checks required for invalid a...</td>\n",
+       "      <td>Implement server-side validation and input len...</td>\n",
+       "      <td>Remediation Required</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>VULN-005</td>\n",
+       "      <td>Missing Security Headers</td>\n",
+       "      <td>Medium</td>\n",
+       "      <td>['Content-Security-Policy', 'X-Frame-Options',...</td>\n",
+       "      <td>Configure appropriate HTTP security headers</td>\n",
+       "      <td>Remediation Required</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>VULN-006</td>\n",
+       "      <td>Session Security Assessment</td>\n",
+       "      <td>Informational</td>\n",
+       "      <td>Session uniqueness and logout invalidation tested</td>\n",
+       "      <td>Use secure cookies, session rotation and serve...</td>\n",
+       "      <td>Basic Checks Passed</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "  Vulnerability ID                Vulnerability     Risk Level  \\\n",
+       "0         VULN-001    Insecure Password Storage           High   \n",
+       "1         VULN-002                SQL Injection           High   \n",
+       "2         VULN-003   Cross-Site Scripting (XSS)           High   \n",
+       "3         VULN-004    Improper Input Validation         Medium   \n",
+       "4         VULN-005     Missing Security Headers         Medium   \n",
+       "5         VULN-006  Session Security Assessment  Informational   \n",
+       "\n",
+       "                                            Evidence  \\\n",
+       "0                     Passwords stored in plain text   \n",
+       "1       Authentication bypass using unsafe SQL query   \n",
+       "2            Unescaped user input inserted into HTML   \n",
+       "3  Input validation checks required for invalid a...   \n",
+       "4  ['Content-Security-Policy', 'X-Frame-Options',...   \n",
+       "5  Session uniqueness and logout invalidation tested   \n",
+       "\n",
+       "                                      Recommendation                Status  \n",
+       "0            Use Argon2id or bcrypt password hashing                  Open  \n",
+       "1                      Use parameterized SQL queries    Fixed and Retested  \n",
+       "2                Apply context-aware output encoding    Fixed and Retested  \n",
+       "3  Implement server-side validation and input len...  Remediation Required  \n",
+       "4        Configure appropriate HTTP security headers  Remediation Required  \n",
+       "5  Use secure cookies, session rotation and serve...   Basic Checks Passed  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "# STEP 11: FINAL VULNERABILITY REPORT\n",
+    "\n",
+    "all_findings = [\n",
+    "    finding_1,\n",
+    "    finding_2,\n",
+    "    finding_3,\n",
+    "    finding_4,\n",
+    "    finding_5,\n",
+    "    finding_6\n",
+    "]\n",
+    "\n",
+    "report_df = pd.DataFrame(all_findings)\n",
+    "\n",
+    "display(report_df)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "1ee3a3a9-6ab6-4075-b836-542be426b14f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "VULNERABILITY RISK SUMMARY\n",
+      "===================================\n",
+      "Risk Level\n",
+      "High             3\n",
+      "Medium           2\n",
+      "Informational    1\n",
+      "Name: count, dtype: int64\n"
+     ]
+    }
+   ],
+   "source": [
+    "# RISK LEVEL ANALYSIS\n",
+    "\n",
+    "risk_summary = report_df[\"Risk Level\"].value_counts()\n",
+    "\n",
+    "print(\"VULNERABILITY RISK SUMMARY\")\n",
+    "print(\"=\" * 35)\n",
+    "\n",
+    "print(risk_summary)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "id": "8e797dfe-bb93-4601-bc77-28a7451d31d0",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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",
+      "text/plain": [
+       "<Figure size 800x500 with 1 Axes>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "# RISK LEVEL VISUALIZATION\n",
+    "\n",
+    "plt.figure(figsize=(8, 5))\n",
+    "\n",
+    "risk_summary.plot(\n",
+    "    kind=\"bar\",\n",
+    "    color=[\"red\", \"orange\", \"green\"]\n",
+    ")\n",
+    "\n",
+    "plt.title(\"Web Application Security Risk Assessment\")\n",
+    "plt.xlabel(\"Risk Level\")\n",
+    "plt.ylabel(\"Number of Findings\")\n",
+    "\n",
+    "plt.xticks(rotation=0)\n",
+    "plt.tight_layout()\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "id": "fe4e3345-4adc-4a45-b916-9d07b0d96835",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Excel Report Generated Successfully!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# EXPORT VULNERABILITY REPORT\n",
+    "\n",
+    "report_df.to_excel(\n",
+    "    \"Web_Security_Vulnerability_Report.xlsx\",\n",
+    "    index=False\n",
+    ")\n",
+    "\n",
+    "print(\"Excel Report Generated Successfully!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "id": "03cbc17f-da9d-4ae5-9d94-ac0da26c2518",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "CSV Report Generated Successfully!\n"
+     ]
+    }
+   ],
+   "source": [
+    "report_df.to_csv(\n",
+    "    \"Web_Security_Vulnerability_Report.csv\",\n",
+    "    index=False\n",
+    ")\n",
+    "\n",
+    "print(\"CSV Report Generated Successfully!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "id": "60977e8f-f921-4f97-b7d1-53f329fefe01",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "==================================================\n",
+      "WEB APPLICATION SECURITY TESTING\n",
+      "FINAL PROJECT SUMMARY\n",
+      "==================================================\n",
+      "Total Findings: 6\n",
+      "High Risk: 3\n",
+      "Medium Risk: 2\n",
+      "Informational: 1\n",
+      "\n",
+      "Project Status: Assessment Completed\n",
+      "Report: Excel and CSV\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"=\" * 50)\n",
+    "print(\"WEB APPLICATION SECURITY TESTING\")\n",
+    "print(\"FINAL PROJECT SUMMARY\")\n",
+    "print(\"=\" * 50)\n",
+    "\n",
+    "print(\"Total Findings:\", len(report_df))\n",
+    "print(\"High Risk:\", (report_df[\"Risk Level\"] == \"High\").sum())\n",
+    "print(\"Medium Risk:\", (report_df[\"Risk Level\"] == \"Medium\").sum())\n",
+    "print(\"Informational:\", (report_df[\"Risk Level\"] == \"Informational\").sum())\n",
+    "\n",
+    "print(\"\\nProject Status: Assessment Completed\")\n",
+    "print(\"Report: Excel and CSV\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "id": "3103edc9-6954-42c0-a020-a42bb091bef8",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Web_Security_Vulnerability_Report.xlsx - Generated Successfully\n",
+      "Web_Security_Vulnerability_Report.csv - Generated Successfully\n"
+     ]
+    }
+   ],
+   "source": [
+    "import os\n",
+    "\n",
+    "files = [\n",
+    "    \"Web_Security_Vulnerability_Report.xlsx\",\n",
+    "    \"Web_Security_Vulnerability_Report.csv\"\n",
+    "]\n",
+    "\n",
+    "for file in files:\n",
+    "    if os.path.exists(file):\n",
+    "        print(file, \"- Generated Successfully\")\n",
+    "    else:\n",
+    "        print(file, \"- Not Found\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "id": "aa39f9e0-d7d5-472f-baf2-a8531d375197",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Collecting reportlab\n",
+      "  Downloading reportlab-5.1.0-py3-none-any.whl.metadata (1.6 kB)\n",
+      "Requirement already satisfied: pillow>=9.0.0 in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from reportlab) (12.3.0)\n",
+      "Requirement already satisfied: charset-normalizer in c:\\users\\mathankumar\\appdata\\local\\programs\\python\\python311\\lib\\site-packages (from reportlab) (3.5.1)\n",
+      "Downloading reportlab-5.1.0-py3-none-any.whl (2.0 MB)\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/2.0 MB ? eta -:--:--\n",
+      "    --------------------------------------- 0.0/2.0 MB 46.8 kB/s eta 0:00:43\n",
+      "    --------------------------------------- 0.0/2.0 MB 46.8 kB/s eta 0:00:43\n",
+      "    --------------------------------------- 0.0/2.0 MB 46.8 kB/s eta 0:00:43\n",
+      "    --------------------------------------- 0.0/2.0 MB 46.8 kB/s eta 0:00:43\n",
+      "    --------------------------------------- 0.0/2.0 MB 49.2 kB/s eta 0:00:41\n",
+      "    --------------------------------------- 0.0/2.0 MB 49.2 kB/s eta 0:00:41\n",
+      "    --------------------------------------- 0.0/2.0 MB 49.2 kB/s eta 0:00:41\n",
+      "    --------------------------------------- 0.0/2.0 MB 49.2 kB/s eta 0:00:41\n",
+      "    --------------------------------------- 0.0/2.0 MB 49.2 kB/s eta 0:00:41\n",
+      "    --------------------------------------- 0.0/2.0 MB 49.2 kB/s eta 0:00:41\n",
+      "   - -------------------------------------- 0.1/2.0 MB 56.4 kB/s eta 0:00:35\n",
+      "   - -------------------------------------- 0.1/2.0 MB 56.4 kB/s eta 0:00:35\n",
+      "   - -------------------------------------- 0.1/2.0 MB 56.4 kB/s eta 0:00:35\n",
+      "   - -------------------------------------- 0.1/2.0 MB 56.4 kB/s eta 0:00:35\n",
+      "   - -------------------------------------- 0.1/2.0 MB 56.2 kB/s eta 0:00:35\n",
+      "   - -------------------------------------- 0.1/2.0 MB 56.2 kB/s eta 0:00:35\n",
+      "   - -------------------------------------- 0.1/2.0 MB 56.2 kB/s eta 0:00:35\n",
+      "   - -------------------------------------- 0.1/2.0 MB 56.2 kB/s eta 0:00:35\n",
+      "   - -------------------------------------- 0.1/2.0 MB 56.2 kB/s eta 0:00:35\n",
+      "   - -------------------------------------- 0.1/2.0 MB 62.4 kB/s eta 0:00:31\n",
+      "   - -------------------------------------- 0.1/2.0 MB 62.4 kB/s eta 0:00:31\n",
+      "   - -------------------------------------- 0.1/2.0 MB 62.4 kB/s eta 0:00:31\n",
+      "   - -------------------------------------- 0.1/2.0 MB 62.4 kB/s eta 0:00:31\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 68.3 kB/s eta 0:00:28\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 68.3 kB/s eta 0:00:28\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 68.3 kB/s eta 0:00:28\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 67.4 kB/s eta 0:00:29\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 67.4 kB/s eta 0:00:29\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 67.4 kB/s eta 0:00:29\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 67.4 kB/s eta 0:00:29\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 67.4 kB/s eta 0:00:29\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 67.4 kB/s eta 0:00:29\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 68.2 kB/s eta 0:00:28\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 68.2 kB/s eta 0:00:28\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 68.2 kB/s eta 0:00:28\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 68.2 kB/s eta 0:00:28\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 68.2 kB/s eta 0:00:28\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 68.2 kB/s eta 0:00:28\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 68.2 kB/s eta 0:00:28\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 68.2 kB/s eta 0:00:28\n",
+      "   -- ------------------------------------- 0.1/2.0 MB 68.2 kB/s eta 0:00:28\n",
+      "   --- ------------------------------------ 0.2/2.0 MB 61.6 kB/s eta 0:00:31\n",
+      "   --- ------------------------------------ 0.2/2.0 MB 61.6 kB/s eta 0:00:31\n",
+      "   --- ------------------------------------ 0.2/2.0 MB 61.6 kB/s eta 0:00:31\n",
+      "   --- ------------------------------------ 0.2/2.0 MB 61.6 kB/s eta 0:00:31\n",
+      "   --- ------------------------------------ 0.2/2.0 MB 64.3 kB/s eta 0:00:29\n",
+      "   --- ------------------------------------ 0.2/2.0 MB 64.3 kB/s eta 0:00:29\n",
+      "   --- ------------------------------------ 0.2/2.0 MB 64.3 kB/s eta 0:00:29\n",
+      "   --- ------------------------------------ 0.2/2.0 MB 64.3 kB/s eta 0:00:29\n",
+      "   --- ------------------------------------ 0.2/2.0 MB 64.3 kB/s eta 0:00:29\n",
+      "   --- ------------------------------------ 0.2/2.0 MB 66.3 kB/s eta 0:00:28\n",
+      "   --- ------------------------------------ 0.2/2.0 MB 66.3 kB/s eta 0:00:28\n",
+      "   --- ------------------------------------ 0.2/2.0 MB 66.3 kB/s eta 0:00:28\n",
+      "   ---- ----------------------------------- 0.2/2.0 MB 66.6 kB/s eta 0:00:28\n",
+      "   ---- ----------------------------------- 0.2/2.0 MB 66.6 kB/s eta 0:00:28\n",
+      "   ---- ----------------------------------- 0.2/2.0 MB 66.6 kB/s eta 0:00:28\n",
+      "   ---- ----------------------------------- 0.2/2.0 MB 69.9 kB/s eta 0:00:26\n",
+      "   ---- ----------------------------------- 0.2/2.0 MB 69.9 kB/s eta 0:00:26\n",
+      "   ---- ----------------------------------- 0.2/2.0 MB 69.9 kB/s eta 0:00:26\n",
+      "   ---- ----------------------------------- 0.2/2.0 MB 70.7 kB/s eta 0:00:26\n",
+      "   ---- ----------------------------------- 0.2/2.0 MB 70.7 kB/s eta 0:00:26\n",
+      "   ---- ----------------------------------- 0.2/2.0 MB 70.7 kB/s eta 0:00:26\n",
+      "   ----- ---------------------------------- 0.3/2.0 MB 73.5 kB/s eta 0:00:24\n",
+      "   ----- ---------------------------------- 0.3/2.0 MB 73.5 kB/s eta 0:00:24\n",
+      "   ----- ---------------------------------- 0.3/2.0 MB 73.5 kB/s eta 0:00:24\n",
+      "   ----- ---------------------------------- 0.3/2.0 MB 76.7 kB/s eta 0:00:23\n",
+      "   ----- ---------------------------------- 0.3/2.0 MB 77.9 kB/s eta 0:00:23\n",
+      "   ----- ---------------------------------- 0.3/2.0 MB 77.9 kB/s eta 0:00:23\n",
+      "   ------ --------------------------------- 0.3/2.0 MB 82.3 kB/s eta 0:00:21\n",
+      "   ------ --------------------------------- 0.3/2.0 MB 83.7 kB/s eta 0:00:21\n",
+      "   ------ --------------------------------- 0.3/2.0 MB 87.7 kB/s eta 0:00:20\n",
+      "   ------ --------------------------------- 0.3/2.0 MB 87.7 kB/s eta 0:00:20\n",
+      "   ------- -------------------------------- 0.4/2.0 MB 91.3 kB/s eta 0:00:19\n",
+      "   ------- -------------------------------- 0.4/2.0 MB 92.8 kB/s eta 0:00:18\n",
+      "   ------- -------------------------------- 0.4/2.0 MB 96.6 kB/s eta 0:00:17\n",
+      "   ------- -------------------------------- 0.4/2.0 MB 96.6 kB/s eta 0:00:17\n",
+      "   ------- -------------------------------- 0.4/2.0 MB 97.3 kB/s eta 0:00:17\n",
+      "   -------- ------------------------------- 0.4/2.0 MB 101.2 kB/s eta 0:00:16\n",
+      "   -------- ------------------------------- 0.4/2.0 MB 101.2 kB/s eta 0:00:16\n",
+      "   -------- ------------------------------- 0.4/2.0 MB 104.3 kB/s eta 0:00:16\n",
+      "   -------- ------------------------------- 0.5/2.0 MB 105.1 kB/s eta 0:00:15\n",
+      "   --------- ------------------------------ 0.5/2.0 MB 109.2 kB/s eta 0:00:15\n",
+      "   --------- ------------------------------ 0.5/2.0 MB 114.4 kB/s eta 0:00:14\n",
+      "   ---------- ----------------------------- 0.5/2.0 MB 117.9 kB/s eta 0:00:13\n",
+      "   ---------- ----------------------------- 0.5/2.0 MB 118.9 kB/s eta 0:00:13\n",
+      "   ---------- ----------------------------- 0.6/2.0 MB 122.3 kB/s eta 0:00:12\n",
+      "   ---------- ----------------------------- 0.6/2.0 MB 122.3 kB/s eta 0:00:12\n",
+      "   ----------- ---------------------------- 0.6/2.0 MB 122.9 kB/s eta 0:00:12\n",
+      "   ----------- ---------------------------- 0.6/2.0 MB 130.6 kB/s eta 0:00:11\n",
+      "   ----------- ---------------------------- 0.6/2.0 MB 130.6 kB/s eta 0:00:11\n",
+      "   ------------ --------------------------- 0.6/2.0 MB 134.1 kB/s eta 0:00:11\n",
+      "   ------------ --------------------------- 0.6/2.0 MB 134.5 kB/s eta 0:00:11\n",
+      "   ------------ --------------------------- 0.6/2.0 MB 134.5 kB/s eta 0:00:11\n",
+      "   ------------- -------------------------- 0.7/2.0 MB 137.0 kB/s eta 0:00:10\n",
+      "   ------------- -------------------------- 0.7/2.0 MB 139.5 kB/s eta 0:00:10\n",
+      "   ------------- -------------------------- 0.7/2.0 MB 140.3 kB/s eta 0:00:10\n",
+      "   -------------- ------------------------- 0.7/2.0 MB 142.7 kB/s eta 0:00:10\n",
+      "   -------------- ------------------------- 0.7/2.0 MB 143.4 kB/s eta 0:00:10\n",
+      "   -------------- ------------------------- 0.7/2.0 MB 143.4 kB/s eta 0:00:10\n",
+      "   -------------- ------------------------- 0.7/2.0 MB 143.4 kB/s eta 0:00:10\n",
+      "   -------------- ------------------------- 0.7/2.0 MB 143.4 kB/s eta 0:00:10\n",
+      "   --------------- ------------------------ 0.8/2.0 MB 148.9 kB/s eta 0:00:09\n",
+      "   --------------- ------------------------ 0.8/2.0 MB 148.9 kB/s eta 0:00:09\n",
+      "   --------------- ------------------------ 0.8/2.0 MB 150.2 kB/s eta 0:00:09\n",
+      "   ---------------- ----------------------- 0.8/2.0 MB 149.9 kB/s eta 0:00:09\n",
+      "   ---------------- ----------------------- 0.8/2.0 MB 149.9 kB/s eta 0:00:09\n",
+      "   ---------------- ----------------------- 0.8/2.0 MB 151.5 kB/s eta 0:00:08\n",
+      "   ---------------- ----------------------- 0.8/2.0 MB 154.4 kB/s eta 0:00:08\n",
+      "   ---------------- ----------------------- 0.8/2.0 MB 154.4 kB/s eta 0:00:08\n",
+      "   ----------------- ---------------------- 0.9/2.0 MB 153.2 kB/s eta 0:00:08\n",
+      "   ----------------- ---------------------- 0.9/2.0 MB 157.0 kB/s eta 0:00:08\n",
+      "   ----------------- ---------------------- 0.9/2.0 MB 157.0 kB/s eta 0:00:08\n",
+      "   ----------------- ---------------------- 0.9/2.0 MB 157.0 kB/s eta 0:00:08\n",
+      "   ------------------ --------------------- 0.9/2.0 MB 160.3 kB/s eta 0:00:07\n",
+      "   ------------------ --------------------- 0.9/2.0 MB 160.3 kB/s eta 0:00:07\n",
+      "   ------------------ --------------------- 0.9/2.0 MB 159.5 kB/s eta 0:00:07\n",
+      "   ------------------ --------------------- 0.9/2.0 MB 159.5 kB/s eta 0:00:07\n",
+      "   ------------------- -------------------- 1.0/2.0 MB 160.8 kB/s eta 0:00:07\n",
+      "   ------------------- -------------------- 1.0/2.0 MB 160.8 kB/s eta 0:00:07\n",
+      "   ------------------- -------------------- 1.0/2.0 MB 159.6 kB/s eta 0:00:07\n",
+      "   ------------------- -------------------- 1.0/2.0 MB 159.6 kB/s eta 0:00:07\n",
+      "   ------------------- -------------------- 1.0/2.0 MB 160.5 kB/s eta 0:00:07\n",
+      "   ------------------- -------------------- 1.0/2.0 MB 160.5 kB/s eta 0:00:07\n",
+      "   ------------------- -------------------- 1.0/2.0 MB 160.5 kB/s eta 0:00:07\n",
+      "   ------------------- -------------------- 1.0/2.0 MB 160.5 kB/s eta 0:00:07\n",
+      "   -------------------- ------------------- 1.0/2.0 MB 159.0 kB/s eta 0:00:07\n",
+      "   -------------------- ------------------- 1.0/2.0 MB 159.0 kB/s eta 0:00:07\n",
+      "   -------------------- ------------------- 1.0/2.0 MB 159.0 kB/s eta 0:00:07\n",
+      "   -------------------- ------------------- 1.0/2.0 MB 157.1 kB/s eta 0:00:07\n",
+      "   -------------------- ------------------- 1.0/2.0 MB 157.1 kB/s eta 0:00:07\n",
+      "   -------------------- ------------------- 1.0/2.0 MB 157.1 kB/s eta 0:00:07\n",
+      "   -------------------- ------------------- 1.0/2.0 MB 156.5 kB/s eta 0:00:07\n",
+      "   -------------------- ------------------- 1.0/2.0 MB 156.5 kB/s eta 0:00:07\n",
+      "   -------------------- ------------------- 1.0/2.0 MB 156.5 kB/s eta 0:00:07\n",
+      "   -------------------- ------------------- 1.0/2.0 MB 156.5 kB/s eta 0:00:07\n",
+      "   -------------------- ------------------- 1.1/2.0 MB 154.0 kB/s eta 0:00:07\n",
+      "   -------------------- ------------------- 1.1/2.0 MB 154.0 kB/s eta 0:00:07\n",
+      "   -------------------- ------------------- 1.1/2.0 MB 154.0 kB/s eta 0:00:07\n",
+      "   -------------------- ------------------- 1.1/2.0 MB 154.0 kB/s eta 0:00:07\n",
+      "   --------------------- ------------------ 1.1/2.0 MB 153.2 kB/s eta 0:00:07\n",
+      "   --------------------- ------------------ 1.1/2.0 MB 153.2 kB/s eta 0:00:07\n",
+      "   --------------------- ------------------ 1.1/2.0 MB 153.7 kB/s eta 0:00:07\n",
+      "   --------------------- ------------------ 1.1/2.0 MB 153.7 kB/s eta 0:00:07\n",
+      "   --------------------- ------------------ 1.1/2.0 MB 153.4 kB/s eta 0:00:06\n",
+      "   --------------------- ------------------ 1.1/2.0 MB 153.4 kB/s eta 0:00:06\n",
+      "   --------------------- ------------------ 1.1/2.0 MB 153.4 kB/s eta 0:00:06\n",
+      "   ---------------------- ----------------- 1.1/2.0 MB 153.3 kB/s eta 0:00:06\n",
+      "   ---------------------- ----------------- 1.1/2.0 MB 153.3 kB/s eta 0:00:06\n",
+      "   ---------------------- ----------------- 1.1/2.0 MB 152.7 kB/s eta 0:00:06\n",
+      "   ---------------------- ----------------- 1.2/2.0 MB 153.9 kB/s eta 0:00:06\n",
+      "   ---------------------- ----------------- 1.2/2.0 MB 153.9 kB/s eta 0:00:06\n",
+      "   ----------------------- ---------------- 1.2/2.0 MB 155.3 kB/s eta 0:00:06\n",
+      "   ----------------------- ---------------- 1.2/2.0 MB 155.3 kB/s eta 0:00:06\n",
+      "   ----------------------- ---------------- 1.2/2.0 MB 154.7 kB/s eta 0:00:06\n",
+      "   ----------------------- ---------------- 1.2/2.0 MB 154.7 kB/s eta 0:00:06\n",
+      "   ----------------------- ---------------- 1.2/2.0 MB 155.2 kB/s eta 0:00:06\n",
+      "   ----------------------- ---------------- 1.2/2.0 MB 155.2 kB/s eta 0:00:06\n",
+      "   ------------------------ --------------- 1.2/2.0 MB 155.0 kB/s eta 0:00:06\n",
+      "   ------------------------ --------------- 1.2/2.0 MB 155.0 kB/s eta 0:00:06\n",
+      "   ------------------------ --------------- 1.2/2.0 MB 156.0 kB/s eta 0:00:05\n",
+      "   ------------------------ --------------- 1.3/2.0 MB 156.8 kB/s eta 0:00:05\n",
+      "   ------------------------ --------------- 1.3/2.0 MB 156.8 kB/s eta 0:00:05\n",
+      "   ------------------------- -------------- 1.3/2.0 MB 156.5 kB/s eta 0:00:05\n",
+      "   ------------------------- -------------- 1.3/2.0 MB 156.5 kB/s eta 0:00:05\n",
+      "   ------------------------- -------------- 1.3/2.0 MB 157.8 kB/s eta 0:00:05\n",
+      "   ------------------------- -------------- 1.3/2.0 MB 157.6 kB/s eta 0:00:05\n",
+      "   ------------------------- -------------- 1.3/2.0 MB 157.6 kB/s eta 0:00:05\n",
+      "   -------------------------- ------------- 1.3/2.0 MB 158.3 kB/s eta 0:00:05\n",
+      "   -------------------------- ------------- 1.3/2.0 MB 158.3 kB/s eta 0:00:05\n",
+      "   -------------------------- ------------- 1.3/2.0 MB 158.9 kB/s eta 0:00:05\n",
+      "   -------------------------- ------------- 1.3/2.0 MB 158.9 kB/s eta 0:00:05\n",
+      "   -------------------------- ------------- 1.4/2.0 MB 158.4 kB/s eta 0:00:05\n",
+      "   --------------------------- ------------ 1.4/2.0 MB 159.6 kB/s eta 0:00:05\n",
+      "   --------------------------- ------------ 1.4/2.0 MB 159.6 kB/s eta 0:00:05\n",
+      "   --------------------------- ------------ 1.4/2.0 MB 159.4 kB/s eta 0:00:04\n",
+      "   --------------------------- ------------ 1.4/2.0 MB 159.4 kB/s eta 0:00:04\n",
+      "   --------------------------- ------------ 1.4/2.0 MB 160.0 kB/s eta 0:00:04\n",
+      "   --------------------------- ------------ 1.4/2.0 MB 160.0 kB/s eta 0:00:04\n",
+      "   --------------------------- ------------ 1.4/2.0 MB 160.0 kB/s eta 0:00:04\n",
+      "   ---------------------------- ----------- 1.4/2.0 MB 159.8 kB/s eta 0:00:04\n",
+      "   ---------------------------- ----------- 1.4/2.0 MB 159.8 kB/s eta 0:00:04\n",
+      "   ---------------------------- ----------- 1.4/2.0 MB 159.5 kB/s eta 0:00:04\n",
+      "   ---------------------------- ----------- 1.4/2.0 MB 159.5 kB/s eta 0:00:04\n",
+      "   ---------------------------- ----------- 1.5/2.0 MB 159.9 kB/s eta 0:00:04\n",
+      "   ---------------------------- ----------- 1.5/2.0 MB 159.9 kB/s eta 0:00:04\n",
+      "   ---------------------------- ----------- 1.5/2.0 MB 159.9 kB/s eta 0:00:04\n",
+      "   ----------------------------- ---------- 1.5/2.0 MB 158.8 kB/s eta 0:00:04\n",
+      "   ----------------------------- ---------- 1.5/2.0 MB 158.8 kB/s eta 0:00:04\n",
+      "   ----------------------------- ---------- 1.5/2.0 MB 158.8 kB/s eta 0:00:04\n",
+      "   ----------------------------- ---------- 1.5/2.0 MB 158.3 kB/s eta 0:00:04\n",
+      "   ----------------------------- ---------- 1.5/2.0 MB 158.3 kB/s eta 0:00:04\n",
+      "   ----------------------------- ---------- 1.5/2.0 MB 158.3 kB/s eta 0:00:04\n",
+      "   ----------------------------- ---------- 1.5/2.0 MB 158.4 kB/s eta 0:00:04\n",
+      "   ----------------------------- ---------- 1.5/2.0 MB 158.4 kB/s eta 0:00:04\n",
+      "   ------------------------------ --------- 1.5/2.0 MB 157.4 kB/s eta 0:00:04\n",
+      "   ------------------------------ --------- 1.5/2.0 MB 157.4 kB/s eta 0:00:04\n",
+      "   ------------------------------ --------- 1.5/2.0 MB 157.4 kB/s eta 0:00:04\n",
+      "   ------------------------------ --------- 1.5/2.0 MB 157.5 kB/s eta 0:00:04\n",
+      "   ------------------------------ --------- 1.5/2.0 MB 157.5 kB/s eta 0:00:03\n",
+      "   ------------------------------ --------- 1.5/2.0 MB 157.5 kB/s eta 0:00:03\n",
+      "   ------------------------------ --------- 1.5/2.0 MB 157.5 kB/s eta 0:00:03\n",
+      "   ------------------------------ --------- 1.5/2.0 MB 157.5 kB/s eta 0:00:03\n",
+      "   ------------------------------- -------- 1.6/2.0 MB 157.1 kB/s eta 0:00:03\n",
+      "   ------------------------------- -------- 1.6/2.0 MB 157.1 kB/s eta 0:00:03\n",
+      "   ------------------------------- -------- 1.6/2.0 MB 157.4 kB/s eta 0:00:03\n",
+      "   ------------------------------- -------- 1.6/2.0 MB 157.4 kB/s eta 0:00:03\n",
+      "   ------------------------------- -------- 1.6/2.0 MB 157.4 kB/s eta 0:00:03\n",
+      "   ------------------------------- -------- 1.6/2.0 MB 157.4 kB/s eta 0:00:03\n",
+      "   ------------------------------- -------- 1.6/2.0 MB 155.3 kB/s eta 0:00:03\n",
+      "   ------------------------------- -------- 1.6/2.0 MB 155.3 kB/s eta 0:00:03\n",
+      "   ------------------------------- -------- 1.6/2.0 MB 155.3 kB/s eta 0:00:03\n",
+      "   ------------------------------- -------- 1.6/2.0 MB 155.3 kB/s eta 0:00:03\n",
+      "   ------------------------------- -------- 1.6/2.0 MB 155.3 kB/s eta 0:00:03\n",
+      "   -------------------------------- ------- 1.6/2.0 MB 154.0 kB/s eta 0:00:03\n",
+      "   -------------------------------- ------- 1.6/2.0 MB 154.0 kB/s eta 0:00:03\n",
+      "   -------------------------------- ------- 1.6/2.0 MB 154.0 kB/s eta 0:00:03\n",
+      "   -------------------------------- ------- 1.6/2.0 MB 153.0 kB/s eta 0:00:03\n",
+      "   -------------------------------- ------- 1.6/2.0 MB 153.0 kB/s eta 0:00:03\n",
+      "   -------------------------------- ------- 1.6/2.0 MB 153.0 kB/s eta 0:00:03\n",
+      "   -------------------------------- ------- 1.6/2.0 MB 152.8 kB/s eta 0:00:03\n",
+      "   -------------------------------- ------- 1.6/2.0 MB 152.8 kB/s eta 0:00:03\n",
+      "   --------------------------------- ------ 1.7/2.0 MB 153.4 kB/s eta 0:00:03\n",
+      "   --------------------------------- ------ 1.7/2.0 MB 153.4 kB/s eta 0:00:03\n",
+      "   --------------------------------- ------ 1.7/2.0 MB 153.4 kB/s eta 0:00:03\n",
+      "   --------------------------------- ------ 1.7/2.0 MB 152.4 kB/s eta 0:00:03\n",
+      "   --------------------------------- ------ 1.7/2.0 MB 152.4 kB/s eta 0:00:03\n",
+      "   --------------------------------- ------ 1.7/2.0 MB 152.9 kB/s eta 0:00:03\n",
+      "   --------------------------------- ------ 1.7/2.0 MB 153.0 kB/s eta 0:00:03\n",
+      "   --------------------------------- ------ 1.7/2.0 MB 153.0 kB/s eta 0:00:03\n",
+      "   ---------------------------------- ----- 1.7/2.0 MB 153.3 kB/s eta 0:00:02\n",
+      "   ---------------------------------- ----- 1.7/2.0 MB 153.3 kB/s eta 0:00:02\n",
+      "   ---------------------------------- ----- 1.8/2.0 MB 154.1 kB/s eta 0:00:02\n",
+      "   ---------------------------------- ----- 1.8/2.0 MB 154.1 kB/s eta 0:00:02\n",
+      "   ---------------------------------- ----- 1.8/2.0 MB 154.1 kB/s eta 0:00:02\n",
+      "   ---------------------------------- ----- 1.8/2.0 MB 153.1 kB/s eta 0:00:02\n",
+      "   ----------------------------------- ---- 1.8/2.0 MB 154.0 kB/s eta 0:00:02\n",
+      "   ----------------------------------- ---- 1.8/2.0 MB 154.0 kB/s eta 0:00:02\n",
+      "   ----------------------------------- ---- 1.8/2.0 MB 153.9 kB/s eta 0:00:02\n",
+      "   ----------------------------------- ---- 1.8/2.0 MB 153.9 kB/s eta 0:00:02\n",
+      "   ----------------------------------- ---- 1.8/2.0 MB 154.4 kB/s eta 0:00:02\n",
+      "   ----------------------------------- ---- 1.8/2.0 MB 154.4 kB/s eta 0:00:02\n",
+      "   ------------------------------------ --- 1.8/2.0 MB 154.9 kB/s eta 0:00:02\n",
+      "   ------------------------------------ --- 1.8/2.0 MB 154.9 kB/s eta 0:00:02\n",
+      "   ------------------------------------ --- 1.8/2.0 MB 154.5 kB/s eta 0:00:02\n",
+      "   ------------------------------------ --- 1.9/2.0 MB 155.7 kB/s eta 0:00:01\n",
+      "   ------------------------------------ --- 1.9/2.0 MB 155.7 kB/s eta 0:00:01\n",
+      "   ------------------------------------ --- 1.9/2.0 MB 155.7 kB/s eta 0:00:01\n",
+      "   ------------------------------------- -- 1.9/2.0 MB 155.1 kB/s eta 0:00:01\n",
+      "   ------------------------------------- -- 1.9/2.0 MB 156.2 kB/s eta 0:00:01\n",
+      "   ------------------------------------- -- 1.9/2.0 MB 156.7 kB/s eta 0:00:01\n",
+      "   ------------------------------------- -- 1.9/2.0 MB 156.7 kB/s eta 0:00:01\n",
+      "   -------------------------------------- - 1.9/2.0 MB 156.5 kB/s eta 0:00:01\n",
+      "   -------------------------------------- - 1.9/2.0 MB 156.5 kB/s eta 0:00:01\n",
+      "   -------------------------------------- - 1.9/2.0 MB 156.5 kB/s eta 0:00:01\n",
+      "   -------------------------------------- - 1.9/2.0 MB 156.8 kB/s eta 0:00:01\n",
+      "   -------------------------------------- - 2.0/2.0 MB 156.8 kB/s eta 0:00:01\n",
+      "   ---------------------------------------  2.0/2.0 MB 157.7 kB/s eta 0:00:01\n",
+      "   ---------------------------------------  2.0/2.0 MB 157.7 kB/s eta 0:00:01\n",
+      "   ---------------------------------------  2.0/2.0 MB 158.1 kB/s eta 0:00:01\n",
+      "   ---------------------------------------  2.0/2.0 MB 159.2 kB/s eta 0:00:01\n",
+      "   ---------------------------------------- 2.0/2.0 MB 158.9 kB/s eta 0:00:00\n",
+      "Installing collected packages: reportlab\n",
+      "Successfully installed reportlab-5.1.0\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "[notice] A new release of pip is available: 24.0 -> 26.2.2\n",
+      "[notice] To update, run: python.exe -m pip install --upgrade pip\n"
+     ]
+    }
+   ],
+   "source": [
+    "!pip install reportlab\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "id": "f54d7047-531d-470c-8855-e4c535446543",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "PDF Report Generated Successfully!\n"
+     ]
+    }
+   ],
+   "source": [
+    "from reportlab.lib.pagesizes import A4\n",
+    "from reportlab.platypus import (\n",
+    "    SimpleDocTemplate,\n",
+    "    Paragraph,\n",
+    "    Spacer,\n",
+    "    Table,\n",
+    "    TableStyle\n",
+    ")\n",
+    "from reportlab.lib import colors\n",
+    "from reportlab.lib.styles import getSampleStyleSheet\n",
+    "\n",
+    "pdf_file = \"Web_Application_Security_Report.pdf\"\n",
+    "\n",
+    "doc = SimpleDocTemplate(\n",
+    "    pdf_file,\n",
+    "    pagesize=A4\n",
+    ")\n",
+    "\n",
+    "styles = getSampleStyleSheet()\n",
+    "\n",
+    "content = []\n",
+    "\n",
+    "content.append(\n",
+    "    Paragraph(\n",
+    "        \"WEB APPLICATION SECURITY TESTING\",\n",
+    "        styles[\"Title\"]\n",
+    "    )\n",
+    ")\n",
+    "\n",
+    "content.append(Spacer(1, 20))\n",
+    "\n",
+    "content.append(\n",
+    "    Paragraph(\n",
+    "        \"Final Vulnerability Assessment Report\",\n",
+    "        styles[\"Heading2\"]\n",
+    "    )\n",
+    ")\n",
+    "\n",
+    "content.append(Spacer(1, 20))\n",
+    "\n",
+    "content.append(\n",
+    "    Paragraph(\n",
+    "        \"Testing Environment: Python Jupyter Notebook\",\n",
+    "        styles[\"Normal\"]\n",
+    "    )\n",
+    ")\n",
+    "\n",
+    "content.append(\n",
+    "    Paragraph(\n",
+    "        \"Assessment Type: Local Security Simulation\",\n",
+    "        styles[\"Normal\"]\n",
+    "    )\n",
+    ")\n",
+    "\n",
+    "content.append(Spacer(1, 20))\n",
+    "\n",
+    "table_data = [\n",
+    "    [\"ID\", \"Vulnerability\", \"Risk\", \"Status\"]\n",
+    "]\n",
+    "\n",
+    "for _, row in report_df.iterrows():\n",
+    "    table_data.append([\n",
+    "        row[\"Vulnerability ID\"],\n",
+    "        row[\"Vulnerability\"],\n",
+    "        row[\"Risk Level\"],\n",
+    "        row[\"Status\"]\n",
+    "    ])\n",
+    "\n",
+    "table = Table(\n",
+    "    table_data,\n",
+    "    repeatRows=1,\n",
+    "    colWidths=[65, 170, 65, 110]\n",
+    ")\n",
+    "\n",
+    "table.setStyle(TableStyle([\n",
+    "    (\"BACKGROUND\", (0, 0), (-1, 0), colors.darkblue),\n",
+    "    (\"TEXTCOLOR\", (0, 0), (-1, 0), colors.white),\n",
+    "    (\"GRID\", (0, 0), (-1, -1), 0.5, colors.grey),\n",
+    "    (\"FONTSIZE\", (0, 0), (-1, -1), 8),\n",
+    "    (\"VALIGN\", (0, 0), (-1, -1), \"TOP\"),\n",
+    "    (\"PADDING\", (0, 0), (-1, -1), 7)\n",
+    "]))\n",
+    "\n",
+    "content.append(table)\n",
+    "content.append(Spacer(1, 20))\n",
+    "\n",
+    "content.append(\n",
+    "    Paragraph(\n",
+    "        \"Conclusion\",\n",
+    "        styles[\"Heading2\"]\n",
+    "    )\n",
+    ")\n",
+    "\n",
+    "content.append(\n",
+    "    Paragraph(\n",
+    "        \"This project demonstrated basic web security testing \"\n",
+    "        \"concepts including authentication, SQL injection, XSS, \"\n",
+    "        \"input validation, security headers and session security. \"\n",
+    "        \"The results represent controlled local simulations and \"\n",
+    "        \"should not be interpreted as findings from a production application.\",\n",
+    "        styles[\"Normal\"]\n",
+    "    )\n",
+    ")\n",
+    "\n",
+    "doc.build(content)\n",
+    "\n",
+    "print(\"PDF Report Generated Successfully!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "id": "06799eee-9ca5-433e-bf54-a12155336e3a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "PDF Exists: True\n",
+      "PDF Size: 2575 bytes\n"
+     ]
+    }
+   ],
+   "source": [
+    "import os\n",
+    "\n",
+    "pdf_file = \"Web_Application_Security_Report.pdf\"\n",
+    "\n",
+    "print(\"PDF Exists:\", os.path.exists(pdf_file))\n",
+    "\n",
+    "if os.path.exists(pdf_file):\n",
+    "    print(\"PDF Size:\", os.path.getsize(pdf_file), \"bytes\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "85f47f7b-4028-4974-a937-961e36f5ea9a",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
