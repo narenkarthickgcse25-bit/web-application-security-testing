@@ -1,0 +1,55 @@
+Web Application Security Testing
+Project Overview
+
+This project demonstrates basic web application security testing using Python and Jupyter Notebook. It focuses on identifying common security weaknesses through controlled local simulations.
+
+Objectives
+Understand basic web application security.
+Test authentication and password strength.
+Demonstrate SQL Injection.
+Demonstrate Cross-Site Scripting (XSS).
+Perform input validation checks.
+Analyze HTTP security headers.
+Perform basic session security checks.
+Technologies Used
+Python 3.11
+Jupyter Notebook
+SQLite3
+Pandas
+Matplotlib
+Requests
+ReportLab
+Security Tests Performed
+Test	Description
+Authentication Testing	Weak password and login validation
+SQL Injection	Vulnerable query demonstration and parameterized query remediation
+XSS Testing	Unsafe HTML input and output encoding
+Input Validation	Invalid and oversized input checks
+Security Headers	Analysis of sample HTTP security headers
+Session Security	Session ID uniqueness and logout simulation
+Vulnerability Findings
+ID	Vulnerability	Risk Level
+VULN-001	Insecure Password Storage	High
+VULN-002	SQL Injection Simulation	High
+VULN-003	XSS Simulation	High
+VULN-004	Input Validation Observation	Medium
+VULN-005	Missing Security Headers Observation	Medium
+VULN-006	Session Security Assessment	Informational
+Project Files
+Web_Application_Security_Testing.ipynb – Main Jupyter Notebook
+Web_Security_Vulnerability_Report.xlsx – Excel report
+Web_Security_Vulnerability_Report.csv – CSV report
+Web_Application_Security_Report.pdf – Final PDF report
+How to Run
+Install Python 3.11.
+Install Jupyter Notebook.
+Install the required Python libraries.
+Open the .ipynb file.
+Execute notebook cells sequentially.
+Disclaimer
+
+This project uses controlled local Python simulations for educational purposes. It is not a penetration test of a production web application. Findings represent simulated vulnerabilities or basic observations, not independently verified production security issues.
+
+Author
+
+Security Testing Project – Python and Jupyter Notebook
